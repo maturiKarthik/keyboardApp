@@ -1,8 +1,9 @@
-package com.example.keyboardshorcuts
+package com.example.keyboardshorcuts.activity
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.keyboardshorcuts.R
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -17,4 +18,6 @@ class SplashActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+
 }

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="tool"
+            type="com.example.keyboardshorcuts.model.Programs" />
+
+        <variable
+            name="clickListener"
+            type="com.example.keyboardshorcuts.listener.ViewClickListener" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="vertical"
+        android:onClick="@{clickListener::onViewClick}"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableRight="@drawable/ic_baseline_chevron_right_24"
+            android:fontFamily="@font/poppinssemibold"
+            android:padding="15dp"
+            android:text="@{tool.name}"
+            android:textSize="13sp" />
+
+
+        <!--
+
+        <com.google.android.material.card.MaterialCardView
+            app:cardCornerRadius="21dp"
+            app:cardElevation="5dp"
+            app:contentPadding="4dp"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="24dp"
+                android:layout_marginLeft="68dp"
+                android:text="@{tool.name}" />
+
+        </com.google.android.material.card.MaterialCardView>
+        -->
+
+    </LinearLayout>
+</layout>
