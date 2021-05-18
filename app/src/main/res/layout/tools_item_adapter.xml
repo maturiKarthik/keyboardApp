@@ -5,19 +5,26 @@
 
         <variable
             name="tool"
-            type="com.example.keyboardshorcuts.model.Programs" />
+            type="com.example.keyboardShorcuts.model.Programs" />
 
         <variable
             name="clickListener"
-            type="com.example.keyboardshorcuts.listener.ViewClickListener" />
+            type="com.example.keyboardShorcuts.listener.ViewClickListener" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:orientation="vertical"
         android:onClick="@{clickListener::onViewClick}"
+        android:orientation="vertical"
         android:padding="10dp">
+
+        <TextView
+            android:id="@+id/urlPath"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:text="@{tool.fileName}"
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/textView"
@@ -28,27 +35,6 @@
             android:padding="15dp"
             android:text="@{tool.name}"
             android:textSize="13sp" />
-
-
-        <!--
-
-        <com.google.android.material.card.MaterialCardView
-            app:cardCornerRadius="21dp"
-            app:cardElevation="5dp"
-            app:contentPadding="4dp"
-            android:layout_gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="24dp"
-                android:layout_marginLeft="68dp"
-                android:text="@{tool.name}" />
-
-        </com.google.android.material.card.MaterialCardView>
-        -->
 
     </LinearLayout>
 </layout>

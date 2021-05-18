@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.keyboardshorcuts">
+    package="com.example.keyboardShorcuts">
 
     <application
         android:allowBackup="true"
@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KeyboardShorcuts">
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.example.keyboardShorcuts.activity.MainActivity"
             android:windowSoftInputMode="adjustPan"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar.Bridge"
             />
         <activity
-            android:name=".activity.SplashActivity"
+            android:name="com.example.keyboardShorcuts.activity.SplashActivity"
             android:noHistory="true"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.KeyboardShorcuts.NoActionBar">

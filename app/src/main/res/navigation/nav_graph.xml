@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.example.keyboardshorcuts.fragments.ListFragment"
+        android:name="com.example.keyboardShorcuts.fragments.ListFragment"
         android:label="fragment_list"
         tools:layout="@layout/fragment_list" >
         <action
@@ -16,11 +16,11 @@
     </fragment>
     <fragment
         android:id="@+id/shortKeySFragment"
-        android:name="com.example.keyboardshorcuts.fragments.ShortKeySFragment"
+        android:name="com.example.keyboardShorcuts.fragments.ShortKeySFragment"
         android:label="fragment_short_key_s"
-        tools:layout="@layout/fragment_short_key_s" >
+        tools:layout="@layout/fragment_short_key" >
         <argument
-            android:name="toolName"
+            android:name="toolUrl"
             app:argType="string"
             android:defaultValue="null" />
     </fragment>
