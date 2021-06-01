@@ -4,13 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.example.keyboardShorcuts.R
 import com.example.keyboardShorcuts.databinding.ToolsItemAdapterBinding
-import com.example.keyboardShorcuts.fragments.ListFragmentDirections
 import com.example.keyboardShorcuts.listener.ViewClickListener
 import com.example.keyboardShorcuts.model.Programs
+import com.example.keyboardShorcuts.util.NavigationAction
 import kotlinx.android.synthetic.main.tools_item_adapter.view.*
 
 
@@ -47,9 +46,7 @@ class ToolsAdapter(var dataSet: List<Programs>) :
 
     override fun onViewClick(view: View) {
         view.urlPath.text?.let {
-            val action = ListFragmentDirections.actionListFragmentToShortKeySFragment()
-            action.toolUrl = it.toString()
-            Navigation.findNavController(view).navigate(action)
+            NavigationAction.start(it.toString(), view)
         }
     }
 }

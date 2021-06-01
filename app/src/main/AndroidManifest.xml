@@ -11,9 +11,9 @@
         android:theme="@style/Theme.KeyboardShorcuts">
         <activity
             android:name="com.example.keyboardShorcuts.activity.MainActivity"
-            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar.Bridge"
-            />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name="com.example.keyboardShorcuts.activity.SplashActivity"
             android:noHistory="true"

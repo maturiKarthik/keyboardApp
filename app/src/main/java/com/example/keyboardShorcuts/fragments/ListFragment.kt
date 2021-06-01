@@ -2,7 +2,6 @@ package com.example.keyboardShorcuts.fragments
 
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +14,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.keyboardShorcuts.R
 import com.example.keyboardShorcuts.adapter.ToolsAdapter
+import com.example.keyboardShorcuts.util.NavigationAction
 import com.example.keyboardShorcuts.viewmodel.ListFragmentViewModel
 import kotlinx.android.synthetic.main.fragment_list.*
 
@@ -38,15 +38,18 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         // Recyclerview
         recyclerView.apply {
             activity?.let {
                 layoutManager = LinearLayoutManager(it.applicationContext)
-               // layoutManager = GridLayoutManager(it.applicationContext,2)
                 layoutLinaerManager = layoutManager as LinearLayoutManager
                 adapter = toolsAdapter
-                addItemDecoration(DividerItemDecoration(activity?.applicationContext,LinearLayoutManager.VERTICAL))
+                addItemDecoration(
+                    DividerItemDecoration(
+                        activity?.applicationContext,
+                        LinearLayoutManager.VERTICAL
+                    )
+                )
             }
         }
 
@@ -54,17 +57,7 @@ class ListFragment : Fragment() {
         listFragmentViewModel.loadPrograms()
         observe()
 
-        //Recycler_scroll
-        recyclerView.setOnScrollChangeListener { v: View?, scrollX: Int, scrollY: Int, oldScrollX: Int, oldScrollY: Int ->
-            val firstPosition = layoutLinaerManager.findFirstCompletelyVisibleItemPosition()
-            if (firstPosition == 0) {
-                constraintLayout2.visibility = View.VISIBLE
-
-            } else {
-                constraintLayout2.visibility = View.GONE
-            }
-        }
-
+        // SearchView
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true
@@ -72,18 +65,33 @@ class ListFragment : Fragment() {
 
             @RequiresApi(Build.VERSION_CODES.N)
             override fun onQueryTextChange(newText: String): Boolean {
-                Log.e("RESULT", ">>>>>>>>>>>> entered $newText")
-                if (newText.isEmpty()){
+                if (newText.isEmpty()) {
                     listFragmentViewModel.loadPrograms()
                 }
-                if (!newText.isNullOrBlank() && !newText.isNullOrEmpty()){
+                if (!newText.isNullOrBlank() && !newText.isNullOrEmpty()) {
                     listFragmentViewModel.searchPrograms(newText)
                 }
 
                 return false
             }
         })
+        onImageViewClick()
+    }
 
+    private fun onImageViewClick() {
+        imageView7.setOnClickListener {
+            NavigationAction.start(
+                "android-studio.json",
+                this.requireView()
+            )
+        }
+        imageView14.setOnClickListener { NavigationAction.start("figma.json", this.requireView()) }
+        imageView15.setOnClickListener {
+            NavigationAction.start(
+                "discord.json",
+                this.requireView()
+            )
+        }
     }
 
     private fun observe() {

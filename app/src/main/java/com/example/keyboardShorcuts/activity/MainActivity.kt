@@ -13,7 +13,5 @@ class MainActivity : AppCompatActivity() {
         Repository.plan(applicationContext)
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        return false
-    }
+
 }

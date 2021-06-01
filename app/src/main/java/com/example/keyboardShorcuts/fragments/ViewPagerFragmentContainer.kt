@@ -12,9 +12,9 @@ import com.example.keyboardShorcuts.adapter.ShortcutKeyChildAdapter
 import com.example.keyboardShorcuts.model.Keys
 import kotlinx.android.synthetic.main.fragment_collection_object.*
 
-class ViewPagerFragmentContainer(val data: List<Keys>) : Fragment() {
+class ViewPagerFragmentContainer(private var data: List<Keys>) : Fragment() {
 
-    override fun onCreateView(
+     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,7 +26,8 @@ class ViewPagerFragmentContainer(val data: List<Keys>) : Fragment() {
         displayShortcuts.apply {
             layoutManager = LinearLayoutManager(view.context)
             adapter = ShortcutKeyChildAdapter(data)
-            addItemDecoration(DividerItemDecoration(view.context,DividerItemDecoration.VERTICAL))
+            addItemDecoration(DividerItemDecoration(view.context, DividerItemDecoration.VERTICAL))
         }
     }
+
 }

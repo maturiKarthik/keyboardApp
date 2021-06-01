@@ -9,15 +9,8 @@ import com.example.keyboardShorcuts.databinding.ItemShortcutSubchildBinding
 import com.example.keyboardShorcuts.model.Keys
 
 //This is used inside ShortcutKeyAdapter.kt
-class ShortcutKeyChildAdapter(var dataSet: List<Keys>) :
+class ShortcutKeyChildAdapter(private var dataSet: List<Keys>) :
     RecyclerView.Adapter<ShortcutKeyChildAdapter.ViewHolder>() {
-
-    //  private var shortcutKeyAdapter = ShortcutKeyAdapter(listOf())
-
-    fun onUpdateData(data: List<Keys>) {
-        this.dataSet = data
-        notifyDataSetChanged()
-    }
 
     class ViewHolder(var view: ItemShortcutSubchildBinding) : RecyclerView.ViewHolder(view.root)
 
