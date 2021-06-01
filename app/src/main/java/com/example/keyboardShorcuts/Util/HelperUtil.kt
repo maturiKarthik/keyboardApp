@@ -1,17 +1,22 @@
+package com.example.keyboardShorcuts.util
 
-package com.example.keyboardShorcuts.Util
+import com.example.keyboardShorcuts.model.Keys
 
 
-fun convertListToString(dataSet: List<String>): String {
-    var cmd = ""
-    dataSet.apply {
-        this.forEachIndexed { index, s ->
-            if (index == this.size - 1) {
-                cmd += s
-            } else {
-                cmd += "$s + "
-            }
+fun convertListToString(data: Keys): String {
+
+    var dataSet = if (ToogleSwitch.state) data.mac_keys else data.keys
+    val cmd: String
+    if (dataSet.isNullOrEmpty() && ToogleSwitch.state) {
+        dataSet = data.keys
+        cmd = dataSet.joinToString(" + ") {
+            " $it"
+        }.replace("Ctrl", "Cmd")
+    } else {
+        cmd = dataSet.joinToString(" + ") {
+            it
         }
     }
-    return "$cmd"
+    return cmd
 }
+
